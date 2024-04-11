@@ -1,9 +1,12 @@
 #include <iostream>
-#include <cmath>
+#include <vector>
 
 using namespace std;
 
 int main()
 {
-    cout << "students";
+    int a = 0;
+    decltype(a) b = a;
+    b++;
+    cout << a << b;
 }
