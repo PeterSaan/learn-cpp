@@ -1,7 +1,5 @@
 #include <iostream>
 #include <vector>
-<<<<<<< HEAD
-#include <ctime>
 
 using namespace std;
 
@@ -29,20 +27,4 @@ int main()
 	// int n = rand();
 	// int* point_n = &n;
 	// cout << rand();
-=======
-
-
-using namespace std;
-
-// vector<int> digitize(int n) {
-//   vector<int> arr;
-  
-  
-// }
-
-int main() {
-  vector<int> arr = {1, 2, 3, 4, 5};
-
-  cout << arr.size();
->>>>>>> 8660048 (Did some Codewars)
 }
