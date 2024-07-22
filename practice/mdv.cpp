@@ -1,30 +1,27 @@
+// There's a "3 for 2" (or "2+1" if you like) offer on mangoes. For a given quantity and price (per mango), calculate the total cost of the mangoes.
+
+// Examples
+// mango(2, 3) ==> 6    # 2 mangoes for $3 per unit = $6; no mango for free
+// mango(3, 3) ==> 6    # 2 mangoes for $3 per unit = $6; +1 mango for free
+// mango(5, 3) ==> 12   # 4 mangoes for $3 per unit = $12; +1 mango for free
+// mango(9, 5) ==> 30   # 6 mangoes for $5 per unit = $30; +3 mangoes for free
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
-void test(vector<int> arr)
-{
-	vector<int> ans = {};
+void mango(int quantity, int price) {
+	int freeMangos = quantity / 3;
 
-	for (int i = arr[0]; i <= arr[arr.size() - 1]; i++)
-	{
-		if (i % 2 == 0)
-		{
-			ans.push_back(i);
-		}
-	}
+	int total = (quantity - freeMangos) * price;
 
-	for (const auto &e : ans)
-	{
-		cout << e << endl;
-	}
+	cout << total << endl;
 }
 
-int main()
-{
-	test({1, 100});
-	// int n = rand();
-	// int* point_n = &n;
-	// cout << rand();
+int main() {
+	mango(2, 3);
+	mango(3, 3);
+	mango(5, 3);
+	mango(9, 5);
+
+	return 0;
 }

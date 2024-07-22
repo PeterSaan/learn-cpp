@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "*.js": "javascript",
-        "xlocnum": "cpp"
-    },
-    "C_Cpp.errorSquiggles": "enabled"
-}
