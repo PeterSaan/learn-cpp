@@ -1,27 +1,32 @@
-// There's a "3 for 2" (or "2+1" if you like) offer on mangoes. For a given quantity and price (per mango), calculate the total cost of the mangoes.
-
-// Examples
-// mango(2, 3) ==> 6    # 2 mangoes for $3 per unit = $6; no mango for free
-// mango(3, 3) ==> 6    # 2 mangoes for $3 per unit = $6; +1 mango for free
-// mango(5, 3) ==> 12   # 4 mangoes for $3 per unit = $12; +1 mango for free
-// mango(9, 5) ==> 30   # 6 mangoes for $5 per unit = $30; +3 mangoes for free
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
-void mango(int quantity, int price) {
-	int freeMangos = quantity / 3;
+void frequencySort(vector<int> arr) {
+	vector<int> freqArr;
+	vecotr<int> numArr;
+	vector<int> sortedArr;
 
-	int total = (quantity - freeMangos) * price;
+	for (size_t i = 0; i < arr.size(); i++) {
+		int freq = 0;
 
-	cout << total << endl;
+		for (size_t j = 0; j < arr.size(); j++) {
+			if (arr[i] == arr[j]) {
+				freq++;
+			}
+		}
+
+				
+	}
+
+	for (size_t i: freqOfNumArr) {
+		cout << freqOfNumArr[i] << " ";
+	}
 }
 
 int main() {
-	mango(2, 3);
-	mango(3, 3);
-	mango(5, 3);
-	mango(9, 5);
+	frequencySort({3, 3, 2, 2, 2, 2, 1});
 
 	return 0;
 }
