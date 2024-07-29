@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <vector>
+#include <list>
 #include <algorithm>
 
 using namespace std;
@@ -24,12 +25,17 @@ void frequencySort(vector<int> arr) {
 
 	for (size_t i = 0; i < numArr.size(); i++) {
 		freqArr.push_back(count(arr.begin(), arr.end(), numArr[i]));
-		
+		freqOfNumArr.push_back({numArr[i], freqArr[i]});
+	}
+
+	for (size_t i = 0; i < freqOfNumArr.size(); i++) {
+		for (size_t j: freqOfNumArr[i]) {
+			cout << j << "\n";
+		}
 	}
 }
 
 int main() {
-	cout << __cplusplus;
 	frequencySort({3, 3, 2, 2, 2, 2, 1, 4});
 
 	return 0;
