@@ -4,34 +4,33 @@
 
 #include <iostream>
 #include <vector>
-#include <list>
 #include <algorithm>
+#include <typeinfo>
 
-using namespace std;
+void frequencySort(std::vector<int> arr) {
+	std::vector<int> freqArr;
+	std::vector<int> numArr;
+	std::vector<int> sortedArr;
+	std::vector<std::vector<int>> freqOfNumArr;
 
-void frequencySort(vector<int> arr) {
-	vector<int> freqArr;
-	vector<int> numArr;
-	vector<int> sortedArr;
-	vector<vector<int>> freqOfNumArr;
+	if (arr.size() > 0) {
+		for (std::size_t i = 0; i < arr.size(); i++) {
+			int numOccurrencesInArr = count(numArr.begin(), numArr.end(), arr[i]);
 
-	for (size_t i = 0; i < arr.size(); i++) {
-		int numOccurrencesInArr = count(numArr.begin(), numArr.end(), arr[i]);
-
-		if (numOccurrencesInArr == 0) {
-			numArr.push_back(arr[i]);
+			if (numOccurrencesInArr == 0) {
+				numArr.push_back(arr[i]);
+			}
 		}
-	}
 
-	for (size_t i = 0; i < numArr.size(); i++) {
-		freqArr.push_back(count(arr.begin(), arr.end(), numArr[i]));
-		freqOfNumArr.push_back({numArr[i], freqArr[i]});
-	}
-
-	for (size_t i = 0; i < freqOfNumArr.size(); i++) {
-		for (size_t j: freqOfNumArr[i]) {
-			cout << j << "\n";
+		// The vector holds values like this: {{number, freq}, {number, freq}}
+		for (std::size_t i = 0; i < numArr.size(); i++) {
+			freqArr.push_back(count(arr.begin(), arr.end(), numArr[i]));
+			freqOfNumArr.push_back({numArr[i], freqArr[i]});
 		}
+
+		
+	} else {
+		std::cout << "Bitch the array you provided is fucking empty, what you want me to do?\n";
 	}
 }
 
