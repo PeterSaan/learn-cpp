@@ -5,32 +5,25 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <typeinfo>
+#include <map>
+#include <unordered_map>
 
 void frequencySort(std::vector<int> arr) {
-	std::vector<int> freqArr;
-	std::vector<int> numArr;
-	std::vector<int> sortedArr;
-	std::vector<std::vector<int>> freqOfNumArr;
+	std::unordered_map<int, int> numMap;
 
-	if (arr.size() > 0) {
-		for (std::size_t i = 0; i < arr.size(); i++) {
-			int numOccurrencesInArr = count(numArr.begin(), numArr.end(), arr[i]);
+	for (int i: arr) {
+		numMap[i] = std::count(arr.cbegin(), arr.cend(), i);
+	}
 
-			if (numOccurrencesInArr == 0) {
-				numArr.push_back(arr[i]);
-			}
+	sort(arr.begin(), arr.end(), [&](int a, int b) {
+		if (numMap[a] == numMap[b]) {
+			return a > b;
 		}
+		return numMap[a] < numMap[b];
+	});
 
-		// The vector holds values like this: {{number, freq}, {number, freq}}
-		for (std::size_t i = 0; i < numArr.size(); i++) {
-			freqArr.push_back(count(arr.begin(), arr.end(), numArr[i]));
-			freqOfNumArr.push_back({numArr[i], freqArr[i]});
-		}
-
-		
-	} else {
-		std::cout << "Bitch the array you provided is fucking empty, what you want me to do?\n";
+	for (auto i: arr) {
+		std::cout << i << "\n";
 	}
 }
 
