@@ -1,34 +1,32 @@
-// Given an array of integers arr, sort the array in increasing oreder based on the frequency of the values.
-// If multiple values have the same frequency, sort them in decreasing order.
-// Return the sorted array.
-
 #include <iostream>
 #include <vector>
-#include <algorithm>
-#include <map>
-#include <unordered_map>
+#include <string>
 
-void frequencySort(std::vector<int> arr) {
-	std::unordered_map<int, int> numMap;
+void countSeniors(std::vector<std::string> details) {
+	int ans = 0;
 
-	for (int i: arr) {
-		numMap[i] = std::count(arr.cbegin(), arr.cend(), i);
-	}
+	for (std::size_t i = 0; i < details.size(); i++) {
+		char firstNum = details[i][11];
+		char secondNum = details[i][12];
 
-	sort(arr.begin(), arr.end(), [&](int a, int b) {
-		if (numMap[a] == numMap[b]) {
-			return a > b;
+		auto ageStr = std::string(1, firstNum) + secondNum;
+		int ageNum = stoi(ageStr);
+
+		if (ageNum > 60) {
+			ans++;
 		}
-		return numMap[a] < numMap[b];
-	});
-
-	for (auto i: arr) {
-		std::cout << i << "\n";
 	}
+
+	std::cout << ans << std::endl;
 }
 
 int main() {
-	frequencySort({3, 3, 2, 2, 2, 2, 1, 4});
+	countSeniors({"7868190130M7522","5303914400F9211","9273338290F4010"});
+	/*char first = '4';
+	char sec = '3';
+	auto ageS = std::string(1, first) + sec;
+
+	std::cout << ageS << std::endl;*/
 
 	return 0;
 }
