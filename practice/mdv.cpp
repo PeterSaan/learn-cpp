@@ -7,11 +7,20 @@
 
 #include <iostream>
 #include <vector>
+#include <bits/stdc++.h>
 
 bool canBeEqual(std::vector<int> target, std::vector<int> arr) {
+	bool ans = false;
 
+	sort(arr.begin(), arr.end());
+	sort(target.begin(), target.end());
+	if (arr == target) {
+		ans = true;
+	}
+
+	return ans;
 }
 
 int main() {
-	return 0;
+	std::cout << canBeEqual({1, 2, 3, 4, 5, 6, 7}, {1, 7, 4, 5, 6, 3, 2}) << std::endl;
 }
