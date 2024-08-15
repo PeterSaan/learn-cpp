@@ -11,10 +11,12 @@ struct TreeNode {
 };
 
 // Also for Leetcode problem 144
-vector<int> preorderTraversal(TreeNode* root) {
-
+void preorderTraversal(TreeNode* root) {
+	std::cout << root << std::endl;
 }
 
 int main() {
-	
+	TreeNode* tree = new TreeNode(1, new TreeNode(2), new TreeNode(3));
+
+	preorderTraversal(tree);
 }
