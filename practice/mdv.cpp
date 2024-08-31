@@ -1,17 +1,11 @@
 #include <iostream>
 #include <vector>
 
-int findClosestNumber(vector<int>& nums) {
-	for(auto i: nums) {
-		i = abs(i);
-
-	}
-	
-	std::cout << nums << std::endl;
+void number(int& num) {
+	std::cout << num << std::endl;
 }
 
 int main() {
-	findClosestNumber({1, 2, 3, 4, 5});
-
-	return 0;
+	int num = 1;
+	number(num);
 }
