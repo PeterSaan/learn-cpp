@@ -1,11 +1,26 @@
 #include <iostream>
 #include <vector>
 
-void number(int& num) {
-	std::cout << num << std::endl;
+int findClosestNumber(std::vector<int>& nums) {
+	int ans = abs(nums[0]);
+	int index = 0;
+
+	for (int i = 1; i < nums.size(); i++) {
+		if (abs(nums[i]) < ans) {
+			ans = abs(nums[i]);
+			index = i;
+		} else if (nums[i] == ans) {
+			index = i;
+		}
+	}
+
+	return nums[index];
 }
 
 int main() {
-	int num = 1;
-	number(num);
+	std::vector<int> nums = {-4, -2, 1, 4, 8};
+
+	std::cout << findClosestNumber(nums) << std::endl;
+	
+	return 0;
 }
