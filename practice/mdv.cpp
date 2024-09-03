@@ -12,25 +12,31 @@ void mergeAlternately(std::string word1, std::string word2) {
 	std::string ans = "";
 	int diff = word1.length() - word2.length();
 
-	for (size_t i = 0; i < word1.length() - diff; i++) {
-		ans = ans + word1[i] + word2[i];
-	}
-
-	if (diff < 0) {
-		for (size_t i = word2.length() - abs(diff); i < word2.length(); i++) {
+	if (diff == 0) {
+		for (int i = 0; i < word1.length(); i++) {
+			ans = ans + word1[i] + word2[i];
+		}
+	} else if (diff < 0) {
+		for (int i = 0; i < word1.length(); i++) {
+			ans = ans + word1[i] + word2[i];
+		}
+		for (int i = word1.length(); i < word2.length(); i++) {
 			ans += word2[i];
 		}
 	} else if (diff > 0) {
-		for (size_t i = word1.length() - diff; i < word1.length(); i++) {
+		for (int i = 0; i < word2.length(); i++) {
+			ans = ans + word1[i] + word2[i];
+		}
+		for (int i = word2.length(); i < word1.length(); i++) {
 			ans += word1[i];
 		}
 	}
-
+	
 	std::cout << ans << std::endl;
 }
 
 int main() {
-	mergeAlternately("ab", "pqrs");
+	mergeAlternately("cdf", "a");
 	
 	return 0;
 }
