@@ -1,34 +1,28 @@
-/*
- * You are given two strings (word1 and word2).
- * Merge the strings by adding letters in alternating order, starting with word1.
- * If a string is longer than the other, append the additional letters onto the end of the merged string.
- * Return the merged string.
-*/
+// Roman to integer
 
 #include <iostream>
-#include <string>
+#include <unordered_map>
+#include <algorithm>
+#include <typeinfo>
 
-void mergeAlternately(std::string word1, std::string word2) {
-	std::string ans = "";
-	int diff = word1.length() - word2.length();
-
-	if (diff == 0) {
-		for (int i = 0; i < word1.length(); i++) {
-			ans = ans + word1[i] + word2[i];
-		}
-	} else if (diff < 0) {
-		for (int i = 0; i < word1.length(); i++) {
-			ans = ans + word1[i] + word2[i];
-		}
-		for (int i = word1.length(); i < word2.length(); i++) {
-			ans += word2[i];
-		}
-	} else if (diff > 0) {
-		for (int i = 0; i < word2.length(); i++) {
-			ans = ans + word1[i] + word2[i];
-		}
-		for (int i = word2.length(); i < word1.length(); i++) {
-			ans += word1[i];
+void romanToInt(std::string s) {
+	int ans = 0;
+	std::reverse(s.begin(), s.end());
+	std::unordered_map<char, int> romanValues;
+	
+	romanValues['I'] = 1;
+	romanValues['V'] = 5;
+	romanValues['X'] = 10;
+	romanValues['L'] = 50;
+	romanValues['C'] = 100;
+	romanValues['D'] = 500;
+	romanValues['M'] = 1000;
+	
+	for (int i = 0; i < s.length(); i++) {
+		if (i > 0 && romanValues[s[i]] < romanValues[s[i-1]]) {
+			ans -= romanValues[s[i]];
+		} else {
+			ans += romanValues[s[i]];
 		}
 	}
 	
@@ -36,7 +30,7 @@ void mergeAlternately(std::string word1, std::string word2) {
 }
 
 int main() {
-	mergeAlternately("cdf", "a");
+	romanToInt("MCMXCIV");
 	
 	return 0;
 }
