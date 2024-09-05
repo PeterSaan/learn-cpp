@@ -1,36 +1,24 @@
-// Roman to integer
+/*
+* Given two strings `s` and `t`, return true if `s` is a subsequence of `t`, or false otherwise.
+* A subsequence of a string is a new string that is formed from the original string by deleting some (can be none) of the characters
+* without disturbing the relative positions of the remaining characters. 
+* i.e., "ace" is a subsequence of "abcde" while "aec" is not.
+*/
 
 #include <iostream>
-#include <unordered_map>
-#include <algorithm>
-#include <typeinfo>
 
-void romanToInt(std::string s) {
-	int ans = 0;
-	std::reverse(s.begin(), s.end());
-	std::unordered_map<char, int> romanValues;
-	
-	romanValues['I'] = 1;
-	romanValues['V'] = 5;
-	romanValues['X'] = 10;
-	romanValues['L'] = 50;
-	romanValues['C'] = 100;
-	romanValues['D'] = 500;
-	romanValues['M'] = 1000;
-	
+bool isSubsequence(std::string s, std::string t) {
 	for (int i = 0; i < s.length(); i++) {
-		if (i > 0 && romanValues[s[i]] < romanValues[s[i-1]]) {
-			ans -= romanValues[s[i]];
-		} else {
-			ans += romanValues[s[i]];
+		for (int j = 0; j < t.length(); j++) {
+
 		}
 	}
-	
-	std::cout << ans << std::endl;
 }
 
 int main() {
-	romanToInt("MCMXCIV");
-	
+	std::cout << isSubsequence("ace", "abcde") << std::endl;
+
 	return 0;
 }
+
+
