@@ -7,16 +7,22 @@
 
 #include <iostream>
 
-bool isSubsequence(std::string s, std::string t) {
-	for (int i = 0; i < s.length(); i++) {
-		for (int j = 0; j < t.length(); j++) {
+void isSubsequence(std::string s, std::string t) {
+	int count = 0;
 
+	for (int i = 0; i < s.length(); i++) {
+		for (int j = count; j < t.length(); j++) {
+			if (s[i] == t[j]) {
+
+				count = j;
+				break;
+			}
 		}
 	}
 }
 
 int main() {
-	std::cout << isSubsequence("ace", "abcde") << std::endl;
+	isSubsequence("aec", "abcde");
 
 	return 0;
 }
