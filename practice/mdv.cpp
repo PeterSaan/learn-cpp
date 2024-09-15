@@ -1,5 +1,5 @@
 /*
- * 121
+ * Leetcode problem 121
  * You're given an array of 'prices' where 'prices[i]'
  * is the price of a given stock on the 'i'th day.
  * Maximise your profit by choosing a single day to buy one stock
